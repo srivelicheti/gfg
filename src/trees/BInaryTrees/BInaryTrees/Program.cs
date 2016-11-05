@@ -17,7 +17,7 @@ namespace BInaryTrees
         {
 
 
-            var array = new int[] {25,14,10,17,19,23,21,24,27,30,8,6,15,18,16,33,12,34,77,65,28,55,48,95};
+            var array = new int[] {25,14,10,17,20,23,21,24,27,30,8,6,15,18,19,16};//,33,12,34,77,65,28,55,48,95};
             //var array = new int[] { 21,14,23,17,19 };
             var bst = new BST<int, Value>();
 
@@ -29,16 +29,23 @@ namespace BInaryTrees
             Console.WriteLine("Tree Height " + bst.Height());
             Console.WriteLine("Tree Height Recursive: " + bst.HeightRecursive());
 
-            for(int i=0;i<24;i++)
-            {
-                bst.DeleteMin();
-                Console.WriteLine("Tree Height " + bst.Height());
-                Console.WriteLine("");
-            }
+           
+            //for(int i=0;i<24;i++)
+            //{
+            //    bst.DeleteMin();
+            //    Console.WriteLine("Tree Height " + bst.Height());
+            //    Console.WriteLine("");
+            //}
 
             Console.WriteLine("");
            // bst.PrintTree();
             Console.Read();
+        }
+
+        private static void TestDelete(int[] array, BST<int, Value> bst)
+        {
+            bst.DeleteUpdaed(17);
+            bst.PrintTree();
         }
 
         private static void TestFloor(int[] array, BST<int, Value> bst)

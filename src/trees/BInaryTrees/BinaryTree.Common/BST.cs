@@ -252,6 +252,13 @@ namespace BinaryTree.Common
                 _root.Size = Size(_root.Left) + Size(_root.Right) + 1;
         }
 
+        public void DeleteUpdaed(TKey key)
+        {
+            _root = DeleteUpdated(_root, key);
+            if (_root != null)
+                _root.Size = Size(_root.Left) + Size(_root.Right) + 1;
+        }
+
 
 
 
@@ -335,28 +342,14 @@ namespace BinaryTree.Common
                     return node.Left;
                 else
                 {
-                    var tempNode = node.Right;
-                    Node parent = node;
-                    if (tempNode.Left == null)
-                    {
-                        parent.Right = DeleteUpdated(tempNode, tempNode.Key);
-                    }
-                    else
-                    {
-                        while (tempNode.Left != null)
-                        {
-                            parent = tempNode;
-                            tempNode = tempNode.Left;
-                        }
-                        parent.Left = Delete(tempNode, tempNode.Key);
-                    }
-                    RecalculateSize(parent);
-                    RecalculateHeight(parent);
-                    tempNode.Left = node.Left;
-                    tempNode.Right = node.Right;
-                    RecalculateSize(tempNode);
-                    RecalculateHeight(tempNode);
-                    return tempNode;
+                    Node deletedNode;
+                    var updatedNode = DeleteMin(node.Right, out deletedNode);
+                    deletedNode.Right = updatedNode;
+                    deletedNode.Left = node.Left;
+                  
+                    RecalculateSize(deletedNode);
+                    RecalculateHeight(deletedNode);
+                    return deletedNode;
                 }
             }
         }
@@ -438,6 +431,7 @@ namespace BinaryTree.Common
             var rightTreeHeight = Height(node.Right);
             return 1 + (leftTreeHeight >= rightTreeHeight ? leftTreeHeight : rightTreeHeight);
         }
+
 
     }
 
