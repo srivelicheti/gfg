@@ -15,31 +15,27 @@ namespace BInaryTrees
     {
         static void Main(string[] args)
         {
+           LargestBstInBinaryTree.PrintLargestBstInBinaryTree("3 2 L 3 4 R");
 
+            LargestBstInBinaryTree.PrintLargestBstInBinaryTree("10 20 L 10 30 R 20 40 L 20 60 R");
+            Console.WriteLine("");
+            Console.Read();
+        }
 
-            var array = new int[] {25,14,10,17,20,23,21,24,27,30,8,6,15,18,19,16};//,33,12,34,77,65,28,55,48,95};
+        private static void TestHeightOfBtree()
+        {
+            var array = new int[]
+            {25, 14, 10, 17, 20, 23, 21, 24, 27, 30, 8, 6, 15, 18, 19, 16, 33, 12, 34, 77, 65, 28, 55, 48, 95};
             //var array = new int[] { 21,14,23,17,19 };
             var bst = new BST<int, Value>();
 
             foreach (var i in array)
             {
-                bst.Put(i,new Value {Val =   i});
+                bst.Put(i, new Value {Val = i});
             }
 
             Console.WriteLine("Tree Height " + bst.Height());
             Console.WriteLine("Tree Height Recursive: " + bst.HeightRecursive());
-
-           
-            //for(int i=0;i<24;i++)
-            //{
-            //    bst.DeleteMin();
-            //    Console.WriteLine("Tree Height " + bst.Height());
-            //    Console.WriteLine("");
-            //}
-
-            Console.WriteLine("");
-           // bst.PrintTree();
-            Console.Read();
         }
 
         private static void TestDelete(int[] array, BST<int, Value> bst)

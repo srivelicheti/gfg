@@ -8,28 +8,11 @@ using System.Xml;
 
 namespace BinaryTree.Common
 {
-
     public class BST<TKey, TValue> where TKey : IComparable<TKey> where TValue : class
     {
-        private class Node
-        {
-            public Node(TKey key, TValue value) //, int rank)
-            {
-                Key = key;
-                Value = value;
-                Size = 1;
-                Height = 1;
-            }
-            public TKey Key { get; }
-            public TValue Value { get; set; }
-            public Node Left { get; set; }
-            public Node Right { get; set; }
-            public int Size { get; set; }
+        
 
-            public int Height { get; set; }
-        }
-
-        private Node _root;
+        private Node<TKey, TValue> _root;
 
         public void Put(TKey key, TValue val)
         {
@@ -40,17 +23,17 @@ namespace BinaryTree.Common
         {
             return Size(_root);
         }
-        private int Size(Node x)
+        private int Size(Node<TKey, TValue> x)
         {
             if (x == null) return 0;
 
             return x.Size;
         }
 
-        private Node Put(Node node, TKey key, TValue val)
+        private Node<TKey, TValue> Put(Node<TKey, TValue> node, TKey key, TValue val)
         {
             if (node == null)
-                return new Node(key, val);
+                return new Node<TKey, TValue>(key, val);
 
             var keyComparison = key.CompareTo(node.Key);
             if (keyComparison < 0)
@@ -83,7 +66,7 @@ namespace BinaryTree.Common
             return Get(_root, key);
         }
 
-        private TValue Get(Node node, TKey key)
+        private TValue Get(Node<TKey, TValue> node, TKey key)
         {
             if (node == null)
                 return default(TValue);
@@ -103,7 +86,7 @@ namespace BinaryTree.Common
             return Min(_root);
         }
 
-        private TValue Min(Node node)
+        private TValue Min(Node<TKey, TValue> node)
         {
             if (node == null)
                 return default(TValue);
@@ -118,7 +101,7 @@ namespace BinaryTree.Common
         {
             return Max(_root);
         }
-        private TValue Max(Node node)
+        private TValue Max(Node<TKey, TValue> node)
         {
             if (node == null)
                 return default(TValue);
@@ -134,7 +117,7 @@ namespace BinaryTree.Common
             return Rank(_root, key, 0);
         }
 
-        private int Rank(Node node, TKey key, int currentRank)
+        private int Rank(Node<TKey, TValue> node, TKey key, int currentRank)
         {
             if (node == null)
                 return currentRank + 1;
@@ -177,7 +160,7 @@ namespace BinaryTree.Common
             return floor != null ? floor.Key : default(TKey);
         }
 
-        private Node Floor(Node node, TKey key)
+        private Node<TKey, TValue> Floor(Node<TKey, TValue> node, TKey key)
         {
             if (node == null)
                 return null;
@@ -199,7 +182,7 @@ namespace BinaryTree.Common
             var ceiling = Ceiling(_root, key);
             return ceiling != null ? ceiling.Key : default(TKey);
         }
-        private Node Ceiling(Node node, TKey key)
+        private Node<TKey, TValue> Ceiling(Node<TKey, TValue> node, TKey key)
         {
             if (node == null)
                 return null;
@@ -219,13 +202,13 @@ namespace BinaryTree.Common
 
         public void DeleteMin()
         {
-            Node deletedNode = null;
+            Node<TKey, TValue> deletedNode = null;
             _root = DeleteMin(_root, out deletedNode);
             if (deletedNode != null)
                 Console.WriteLine(deletedNode.Key);
         }
 
-        private Node DeleteMin(Node n, out Node deltedNode)
+        private Node<TKey, TValue> DeleteMin(Node<TKey, TValue> n, out Node<TKey, TValue> deltedNode)
         {
             if (n == null)
             {
@@ -262,7 +245,7 @@ namespace BinaryTree.Common
 
 
 
-        private Node Delete(Node node, TKey key)
+        private Node<TKey, TValue> Delete(Node<TKey, TValue> node, TKey key)
         {
             if (node == null) return null;
 
@@ -290,7 +273,7 @@ namespace BinaryTree.Common
                 else
                 {
                     var tempNode = node.Right;
-                    Node parent = node;
+                    Node<TKey, TValue> parent = node;
                     if (tempNode.Left == null)
                     {
                         parent.Right = Delete(tempNode, tempNode.Key);
@@ -315,7 +298,7 @@ namespace BinaryTree.Common
             }
         }
 
-        private Node DeleteUpdated(Node node, TKey key)
+        private Node<TKey, TValue> DeleteUpdated(Node<TKey, TValue> node, TKey key)
         {
             if (node == null) return null;
 
@@ -342,7 +325,7 @@ namespace BinaryTree.Common
                     return node.Left;
                 else
                 {
-                    Node deletedNode;
+                    Node<TKey, TValue> deletedNode;
                     var updatedNode = DeleteMin(node.Right, out deletedNode);
                     deletedNode.Right = updatedNode;
                     deletedNode.Left = node.Left;
@@ -355,24 +338,24 @@ namespace BinaryTree.Common
         }
 
 
-        private void RecalculateHeight(Node n)
+        private void RecalculateHeight(Node<TKey, TValue> n)
         {
             n.Height = Max(Height(n.Left), Height(n.Right)) + 1;
         }
 
-        private void RecalculateSize(Node node)
+        private void RecalculateSize(Node<TKey, TValue> node)
         {
             node.Size = Size(node.Right) + Size(node.Left) + 1;
         }
 
         private class BFSHelper
         {
-            public BFSHelper(Node node, int level)
+            public BFSHelper(Node<TKey, TValue> node, int level)
             {
                 Node = node;
                 Level = level;
             }
-            public Node Node { get; }
+            public Node<TKey, TValue> Node { get; }
             public int Level { get; }
         }
         public void PrintTree()
@@ -385,7 +368,7 @@ namespace BinaryTree.Common
                 while (q.Count > 0)
                 {
                     var temp = q.Dequeue();
-                    Node n = temp.Node;
+                    Node<TKey, TValue> n = temp.Node;
                     if (currentLevel != temp.Level)
                     {
                         Console.WriteLine("");
@@ -417,13 +400,13 @@ namespace BinaryTree.Common
             return HeightRecursive(_root);
         }
 
-        private int Height(Node n)
+        private int Height(Node<TKey, TValue> n)
         {
             if (n == null) return 0;
             return n.Height;
         }
 
-        private int HeightRecursive(Node node)
+        private int HeightRecursive(Node<TKey, TValue> node)
         {
             if (node == null) return 0;
 
@@ -432,6 +415,8 @@ namespace BinaryTree.Common
             return 1 + (leftTreeHeight >= rightTreeHeight ? leftTreeHeight : rightTreeHeight);
         }
 
+
+        public Node<TKey, TValue> Root => _root;
 
     }
 
