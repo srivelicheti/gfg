@@ -36,7 +36,8 @@ namespace BInaryTrees
         private static Node Clone(Node nodeToClone, Node parent = null, bool? isLeftLinkOfParent = null)
         {
             if (nodeToClone == null) return null;
-            var cloned = _clonedMap.ContainsKey(nodeToClone.Key) ? _clonedMap[nodeToClone.Key] : new Node(nodeToClone.Key);
+            var cloned = _clonedMap.ContainsKey(nodeToClone.Key) ? 
+                _clonedMap[nodeToClone.Key] : new Node(nodeToClone.Key);
             _clonedMap.Add(cloned.Key,cloned);
             if (parent != null)
             {

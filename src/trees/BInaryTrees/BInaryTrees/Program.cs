@@ -15,9 +15,9 @@ namespace BInaryTrees
     {
         static void Main(string[] args)
         {
-           LargestBstInBinaryTree.PrintLargestBstInBinaryTree("3 2 L 3 4 R");
+           LargestBstInBinaryTree.PrintLargestBstInBinaryTree("1 10 L 1 20 R 20 30 L 30 40 R");
 
-            LargestBstInBinaryTree.PrintLargestBstInBinaryTree("10 20 L 10 30 R 20 40 L 20 60 R");
+            //LargestBstInBinaryTree.PrintLargestBstInBinaryTree("1 2 R 2 4 R 4 5 R 5 6 R 6 7 R 7 8 L");
             Console.WriteLine("");
             Console.Read();
         }
