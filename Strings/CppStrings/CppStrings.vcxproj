@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3DE05F92-6669-47CF-A323-4691DAD308FE}</ProjectGuid>
+    <ProjectGuid>{65375824-24EF-48FA-A81C-23E5FD922555}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>CppBinaryTrees</RootNamespace>
+    <RootNamespace>CppStrings</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -149,10 +149,10 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CloneNode.cpp" />
-    <ClCompile Include="Cpp.BinaryTrees.cpp" />
-    <ClCompile Include="IsBst.cpp" />
-    <ClCompile Include="largeBst.cpp" />
+    <ClCompile Include="AdditiveSequence.cpp" />
+    <ClCompile Include="CppStrings.cpp" />
+    <ClCompile Include="InterleavedString.cpp" />
+    <ClCompile Include="IsValidIPV4Address.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

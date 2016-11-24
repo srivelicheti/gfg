@@ -29,16 +29,16 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Cpp.BinaryTrees.cpp">
+    <ClCompile Include="CppStrings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CloneNode.cpp">
+    <ClCompile Include="AdditiveSequence.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="largeBst.cpp">
+    <ClCompile Include="InterleavedString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IsBst.cpp">
+    <ClCompile Include="IsValidIPV4Address.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

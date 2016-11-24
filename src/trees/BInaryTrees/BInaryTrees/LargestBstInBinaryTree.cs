@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BinaryTree.Common;
 
@@ -27,60 +29,109 @@ namespace BInaryTrees
         private static int _currentMaxHeight;
         public static void PrintLargestBstInBinaryTree(string text)
         {
-            text = "1 10 L 1 20 R 20 30 L 30 40 R";
+            text = "1 10 L 1 20 R 20 30 L 30 40 R 40 60 R";
+
+            text = "1 5 R 5 7 R 7 9 R 9 10 R 10 30 L";
             _currentMaxHeight = 0;
             var tree = BuildFromDelimitedText(text);
 
             var root = tree.Root;
-            GetLargestBst(root);
+            var binaryTreeSize = ComputerBinaryTreeSize(root);
+            Console.WriteLine("Max Binary Tree Height:: " + _currentMaxHeight);
+          //  GetLargestBst(root);
             Console.WriteLine(_currentMaxHeight);
         }
 
-        private static int GetLargestBst<TKey>(Node<TKey> root) where TKey : IComparable<TKey>
+
+        private static Tuple<int, int, int> ComputerBinaryTreeSize<TKey>(Node<TKey> child) 
+            where TKey : IComparable<TKey>
         {
-            if (root == null) return 0;
-            var left = GetLeftTreeBstSize<TKey>(root.Left, root,root.Key);
-            var right = GetRightTreeBstSize(root.Right, root,root.Key);
+            if(child == null)
+                return new Tuple<int, int, int>(0,-1,-1);
 
-            var totalBinalryTreeHeight = (left == -1 || right == -1 ) ? -1 : left + right + 1;
-            _currentMaxHeight = Math.Max(_currentMaxHeight, totalBinalryTreeHeight);
+            var left = ComputerBinaryTreeSize<TKey>(child.Left);
+            var lefMin = left.Item2;
+            var leftMax = left.Item3;
+            var isLeftValid = (lefMin == -1 || lefMin.CompareTo(child.Key) <= 0) &&
+                              (leftMax == -1 || leftMax.CompareTo(child.Key) <= 0);
+            var minLeft = !isLeftValid
+                ? -1
+                : (lefMin != -1 ? lefMin : (leftMax != -1 ? leftMax : Convert.ToInt32(child.Key.ToString())));
+            var right = ComputerBinaryTreeSize(child.Right);
 
-            return totalBinalryTreeHeight;
+            var rightMin = right.Item2;
+            var rightMax = right.Item3;
 
+            var isValidRight = (rightMin == -1 || rightMin.CompareTo(child.Key) > 0) &&
+                               (rightMax == -1 || rightMax.CompareTo(child.Key) > 0);
+
+
+            var maxRight = !isValidRight
+                ? -1
+                : (rightMax != -1 ? rightMax : (rightMin != -1 ? rightMin : Convert.ToInt32(child.Key.ToString())));
+
+            var isBinary = isLeftValid && isValidRight;
+            var totalHeight = !isBinary || (left.Item1 == -1) || right.Item1 == -1 ? -1 : left.Item1 + right.Item1 + 1;
+
+            _currentMaxHeight = Math.Max(_currentMaxHeight, totalHeight); 
+
+
+            return new Tuple<int, int, int>(totalHeight,minLeft,maxRight);
         }
 
-        private static int GetLeftTreeBstSize<TKey>(Node<TKey> child, Node<TKey> parent,TKey currentMax) where TKey : IComparable<TKey>
+   
+
+        private static Tuple<int, int, int> ComputeLeftMaxTreeComputeRightMaxTree<TKey>(Node<TKey> child, Node<TKey> parent)
+            where TKey : IComparable<TKey>
         {
-            if (child == null) return 0;
-            bool isBinaryTree = !(child.Key.CompareTo(parent.Key) > 0 && child.Key.CompareTo(currentMax) > 0 );
-
-            var left = GetLeftTreeBstSize<TKey>(child.Left, child,parent.Key);
-            var right = GetRightTreeBstSize(child.Right, child, parent.Key);
-
-            //left = left == -1 ? 0 : left;
-            //right = right == -1 ? 0 : right;
-            var totalBinalryTreeHeight = left == -1 || right == -1 ? -1 : left + right + 1;
-            _currentMaxHeight = Math.Max(_currentMaxHeight, totalBinalryTreeHeight);
-            return isBinaryTree ? totalBinalryTreeHeight : -1;
-
-        }
-        //private int 
-        private static int GetRightTreeBstSize<TKey>(Node<TKey> child, Node<TKey> parent, TKey currentMax) where TKey : IComparable<TKey>
-        {
-            if (child == null) return 0;
-
-            bool isBinaryTree = !(child.Key.CompareTo(parent.Key) <= 0 && child.Key.CompareTo(currentMax) <=0);
-
-            var left = GetLeftTreeBstSize<TKey>(child.Left, child,parent.Key) ;
-            var right = GetRightTreeBstSize(child.Right, child,parent.Key);
-            var totalBinalryTreeHeight = (left == -1 || right == -1) ? -1 : left + right + 1;
-            _currentMaxHeight = Math.Max(_currentMaxHeight, totalBinalryTreeHeight);
-            return isBinaryTree ? totalBinalryTreeHeight : -1;
-
+            throw new NotImplementedException();
         }
 
-        /// <param name="input"></param>
-        /// <returns></returns>
+        //private static int GetLargestBst<TKey>(Node<TKey> root) where TKey : IComparable<TKey>
+        //{
+        //    if (root == null) return 0;
+        //    var left = GetLeftTreeBstSize<TKey>(root.Left, root,root.Key);
+        //    var right = GetRightTreeBstSize(root.Right, root,root.Key);
+
+            //    var totalBinalryTreeHeight = (left == -1 || right == -1 ) ? -1 : left + right + 1;
+            //    _currentMaxHeight = Math.Max(_currentMaxHeight, totalBinalryTreeHeight);
+
+            //    return totalBinalryTreeHeight;
+
+            //}
+
+            //private static int GetLeftTreeBstSize<TKey>(Node<TKey> child, Node<TKey> parent,TKey currentMax) where TKey : IComparable<TKey>
+            //{
+            //    if (child == null) return 0;
+            //    bool isBinaryTree = !(child.Key.CompareTo(parent.Key) > 0 && child.Key.CompareTo(currentMax) > 0 );
+
+            //    var left = GetLeftTreeBstSize<TKey>(child.Left, child,parent.Key);
+            //    var right = GetRightTreeBstSize(child.Right, child, parent.Key);
+
+            //    //left = left == -1 ? 0 : left;
+            //    //right = right == -1 ? 0 : right;
+            //    var totalBinalryTreeHeight = left == -1 || right == -1 ? -1 : left + right + 1;
+            //    _currentMaxHeight = Math.Max(_currentMaxHeight, totalBinalryTreeHeight);
+            //    return isBinaryTree ? totalBinalryTreeHeight : -1;
+
+            //}
+            ////private int 
+            //private static int GetRightTreeBstSize<TKey>(Node<TKey> child, Node<TKey> parent, TKey currentMax) where TKey : IComparable<TKey>
+            //{
+            //    if (child == null) return 0;
+
+            //    bool isBinaryTree = !(child.Key.CompareTo(parent.Key) <= 0 && child.Key.CompareTo(currentMax) <=0);
+
+            //    var left = GetLeftTreeBstSize<TKey>(child.Left, child,parent.Key) ;
+            //    var right = GetRightTreeBstSize(child.Right, child,parent.Key);
+            //    var totalBinalryTreeHeight = (left == -1 || right == -1) ? -1 : left + right + 1;
+            //    _currentMaxHeight = Math.Max(_currentMaxHeight, totalBinalryTreeHeight);
+            //    return isBinaryTree ? totalBinalryTreeHeight : -1;
+
+            //}
+
+            /// <param name="input"></param>
+            /// <returns></returns>
         public static BinaryTree<int> BuildFromDelimitedText(string input)
         {
             IDictionary<int, Node<int>> dic = new Dictionary<int, Node<int>>();

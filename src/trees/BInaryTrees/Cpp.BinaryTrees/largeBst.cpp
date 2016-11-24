@@ -5,101 +5,62 @@
 #include <iostream>
 using namespace ::std;
 
-
+#ifndef NODE_DEFINED
+#define NODE_DEFINED
 struct Node
 {
 	int data;
 	struct Node* left;
 	struct Node* right;
 };
+#endif
 
 static int _currentMaxHeight = 0;
-tuple<int, bool> GetRightMaxBTreeSize(Node* child, Node* parent, int currentMax, bool isLeftSubtree);
-tuple<int, bool> GetLeftMaxBTreeSize(Node* child, Node* parent, int currentMax, bool isLeftSubtree);
+tuple<int, int, int> largeBstInternal(Node* n);
 
 int largestBst(Node* node)
 {
 	_currentMaxHeight = 0;
 	if (node == nullptr)
 		return 0;
-
-	/*auto left = GetLeftMaxBTreeSize(node->left, node, node->data, true);
-	auto right = GetRightMaxBTreeSize(node->right, node, node->data, false);
-
-	auto totalBinaryTreeHeight = (left == -1 || right == -1) ? 1 : (left + right + 1);*/
-
-
-	auto leftTuple = GetLeftMaxBTreeSize(node->left, node, node->data, true);
-	auto left = get<0>(leftTuple);
-
-	auto rightTuple = GetRightMaxBTreeSize(node->right, node, node->data, false);
-
-	auto right = get<0>(rightTuple);
-
-	auto isFullLeftBinaryTree = get<1>(leftTuple);
-	auto isFullRightBinaryTree = get<1>(rightTuple);
-
-	auto totalBinaryTreeHeight = (left == -1 || right == -1 || !isFullLeftBinaryTree || !isFullRightBinaryTree) ? -1 : (left + right + 1);
-
-	_currentMaxHeight = max(_currentMaxHeight, totalBinaryTreeHeight);
-
+	auto size = largeBstInternal(node);
 
 	return _currentMaxHeight;
-
 }
 
-tuple<int, bool> GetLeftMaxBTreeSize(Node* child, Node* parent, int currentMax, bool isLeft)
+tuple<int,int,int> largeBstInternal(Node* n)
 {
-	if (child == nullptr)
-		return make_tuple(0, true);
+	if (n == nullptr)
+		return make_tuple(0, -1, -1);
 
-	auto isBinaryTree = child->data <= parent->data;
+	auto left = largeBstInternal(n->left);
 
-	auto isBinaryTreeWithParent = (isLeft ? child->data <= currentMax : child->data > currentMax);
+	auto leftMin = get<1>(left);
+	auto leftMax = get<2>(left);
+	auto isLeftValid = (leftMin == -1 || leftMin <= n->data) &&
+		(leftMin == -1 || leftMax <= n->data);
 
-	auto leftTuple = GetLeftMaxBTreeSize(child->left, child, parent->data, true);
-	auto left = get<0>(leftTuple);
+	auto minLeft = !isLeftValid ? -1 :
+		(leftMin != -1 ? leftMin : (leftMax != -1 ? leftMax : (n->data)));
 
-	auto rightTuple = GetRightMaxBTreeSize(child->right, child, parent->data, true);
+	auto right = largeBstInternal(n->right);
 
-	auto right = get<0>(rightTuple);
+	auto rightMin = get<1>(right);
+	auto rightMax = get<2>(right);
+	auto isrightValid = (rightMin == -1 || rightMin > n->data) &&
+		(rightMin == -1 || rightMax > n->data);
 
-	auto isFullLeftBinaryTree = get<1>(leftTuple);
-	auto isFullRightBinaryTree = get<1>(rightTuple);
-
-	auto totalBinaryTreeHeight = (left == -1 || right == -1) ? 0 : (left + right + 1);
-	_currentMaxHeight = max(_currentMaxHeight, totalBinaryTreeHeight);
-
-
-	auto height = isBinaryTree && isBinaryTreeWithParent ? totalBinaryTreeHeight : -1;
-
-	return make_tuple(height, isBinaryTreeWithParent);
+	auto maxRight = !isrightValid ? -1 :
+		(rightMax != -1 ? rightMax : (rightMin != -1 ? rightMin : (n->data)));
 
 
-}
+	auto isBinary = isrightValid && isLeftValid;
 
-tuple<int, bool> GetRightMaxBTreeSize(Node* child, Node* parent, int currentMax, bool isLeft)
-{
-	if (child == nullptr)
-		return make_tuple(0, true);
+	auto currentTreeHeight = !isBinary || get<0>(left) == -1 || get<0>(right) == -1 
+		? -1 : get<0>(left) + get<0>(right) + 1;
 
-	auto isBinaryTree = child->data > parent->data;
-	auto isBinaryTreeWithParent = (isLeft ? child->data <= currentMax : child->data > currentMax);
-	auto leftTuple = GetLeftMaxBTreeSize(child->left, child, parent->data, false);
-	auto left = get<0>(leftTuple);
+	_currentMaxHeight = max(_currentMaxHeight, currentTreeHeight);
 
-	auto rightTuple = GetRightMaxBTreeSize(child->right, child, parent->data, false);
-
-	auto right = get<0>(rightTuple);
-
-	auto isFullLeftBinaryTree = get<1>(leftTuple);
-	auto isFullRightBinaryTree = get<1>(rightTuple);
-
-	auto totalBinaryTreeHeight = (left == -1 || right == -1 || !isFullLeftBinaryTree || !isFullRightBinaryTree) ? 1 : (left + right + 1);
-	_currentMaxHeight = max(_currentMaxHeight, totalBinaryTreeHeight);
-
-	auto height = isBinaryTree ? totalBinaryTreeHeight : -1;
-
-	return std::make_tuple(height, isBinaryTreeWithParent);
+	return make_tuple(currentTreeHeight, minLeft, maxRight);
 
 }

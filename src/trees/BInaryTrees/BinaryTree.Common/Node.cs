@@ -31,5 +31,7 @@ namespace BinaryTree.Common
         public TKey Key { get; }
         public Node<TKey> Left { get; set; }
         public Node<TKey> Right { get; set; }
+        
+        
     }
 }
