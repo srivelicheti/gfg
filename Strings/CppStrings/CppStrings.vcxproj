@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdditiveSequence.cpp" />
+    <ClCompile Include="CountPalindromicSubSequences.cpp" />
     <ClCompile Include="CppStrings.cpp" />
     <ClCompile Include="InterleavedString.cpp" />
     <ClCompile Include="IsValidIPV4Address.cpp" />
