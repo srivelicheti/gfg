@@ -11,9 +11,15 @@ namespace TestStrings
     {
         static void Main(string[] args)
         {
-           //Console.WriteLine( InterleavedString.IsInterleaved("ABC", "DEF", "ADFEC"));
-            var count = CountPalindromeSubSequences.GetCountOfPalidromSubsequence("badb");
-            Console.Read();
+            //Console.WriteLine( InterleavedString.IsInterleaved("ABC", "DEF", "ADFEC"));
+            do
+            {
+                Console.WriteLine("Enter String");
+                string s = Console.ReadLine();
+                var count = CountPalindromeSubSequences.GetCountOfPalidromSubsequence(s);
+                Console.WriteLine(count);
+            } while (Console.Read() == 1);
+           
         }
     }
 }

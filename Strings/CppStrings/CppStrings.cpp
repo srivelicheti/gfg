@@ -12,20 +12,17 @@ using namespace ::std;
 bool IsInterleaved(string s1, string s2, string s);
 void PrintIfAdditive(string num);
 bool IsValidAddress(char* s);
+long GetPalindromicSubSequenceCount(string s);
 
 int main()
 {
 	int i = 1;
 	do
 	{
-		cout << "Enter ip add" << std::endl;
-		std::string temp;
-		cin >> temp;
-		char* s = &temp[0];// "192..11.24.111";
-
-		bool isValid = IsValidAddress(s);
-
-		cout << isValid;
+		string s;
+		cout << "Enter String " << endl;
+		cin >> s;
+		cout << GetPalindromicSubSequenceCount(s);
 
 		cin >> i;
 	} while (i == 1);

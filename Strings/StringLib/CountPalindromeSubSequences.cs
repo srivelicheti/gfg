@@ -35,7 +35,8 @@ namespace StringLib
             {
                 if (s[i] == suffixChar)
                 {
-                   var innerPalinrome = GetCount(s.Substring(i + 1, suffixIndex - (i + 1)));
+                   var innerPalinrome = 
+                        GetCount(s.Substring(i + 1, suffixIndex - (i + 1)));
                     count = innerPalinrome + 1 + count;
                 }
             }
