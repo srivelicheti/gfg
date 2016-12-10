@@ -4,11 +4,9 @@
 
 int GetLargesetSubArray(int a[], int size)
 {
-	int maxSize = 0;// a[0];
+	int maxSize = 0;
 	int finalmax = 0;
 
-	int test[] = {1,2,3};
-	int currentReduction = 0;
  
 	int indivMax = a[0];
 	for(int i = 0;i<size;i++)
