@@ -206,7 +206,6 @@ namespace TriesLib
             if (nextNode == null)
             {
                 _root[index] = new TrieNode(size, s, ConvertFunc);
-                _root[index].IsValue = _root[index].IsValue;
             }
             else
             {
