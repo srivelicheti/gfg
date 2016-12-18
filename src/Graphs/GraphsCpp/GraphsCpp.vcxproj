@@ -150,7 +150,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GraphsCpp.cpp" />
+    <ClCompile Include="NumberOfIslands.cpp" />
     <ClCompile Include="PrimsMSTBare.cpp" />
+    <ClCompile Include="PrimsMSTUsingHeap.cpp" />
+    <ClCompile Include="PrimsPQ.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
