@@ -44,5 +44,8 @@
     <ClCompile Include="NumberOfIslands.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TopologicalSort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

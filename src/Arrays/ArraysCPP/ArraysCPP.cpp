@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include "stdio.h"
 #include <iostream>
-
+using namespace std;
 
 /*You are required to complete this method*/
 int max_sum(int A[], int N)
@@ -34,9 +34,16 @@ int max_sum(int A[], int N)
 
 int main()
 {
-	int p[]{8,3,1,2};
-	std::cout << max_sum(p, 4) << std::endl;
-	int temp;
+	
+	int* harray = new int[2]{100,200};
+	int sarray[2]{ 400,500 };
+
+	int* psarray = sarray;
+	++harray;
+	std::cout << *harray << endl;
+	(psarray)++;
+	std::cout << *psarray << endl;
+ 	int temp;
 	std::cin >> temp;
     return 0;
 }
