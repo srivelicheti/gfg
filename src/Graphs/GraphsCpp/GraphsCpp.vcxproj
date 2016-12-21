@@ -149,7 +149,9 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DeleteEveryKthNodeInLinkedList.cpp" />
     <ClCompile Include="GraphsCpp.cpp" />
+    <ClCompile Include="MergeKSortedLinkedLists.cpp" />
     <ClCompile Include="NumberOfIslands.cpp" />
     <ClCompile Include="PrimsMSTBare.cpp" />
     <ClCompile Include="PrimsMSTUsingHeap.cpp" />
