@@ -2,14 +2,18 @@
 //
 
 #include "stdafx.h"
-
+#include "CommonHeader.h";
 //int main_multipytwolinkedlist();
 
 
-void multipytwolinkedlist_main();
+//void multipytwolinkedlist_main();
+//void FlattenAndSort_main();
+
 int main()
 {
-	multipytwolinkedlist_main();
+	///*FlattenAndSort_main*/()();
+	FlattenAndSortLinkedList::FlattenAndSort_main();
+	
 	//cout << /*main_multipytwolinkedlist*/() <<endl;
 	int i;
 	cin >> i;
