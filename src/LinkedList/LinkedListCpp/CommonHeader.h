@@ -14,3 +14,15 @@ namespace CloneListWithNextAndRandom
 	
 	void CloneListWithNextAndRandom_main();
 }
+
+
+namespace YShapedListIntersection
+{
+	void YShapedListIntersection_main();
+}
+
+
+namespace DeleteNodesHaingGreaterOnRight
+{
+	void DeleteNodesHaingGreaterOnRight_main();
+}
