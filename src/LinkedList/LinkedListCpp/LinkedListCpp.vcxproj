@@ -153,6 +153,7 @@
     <ClCompile Include="LinkedListCpp.cpp" />
     <ClCompile Include="MultiplyTwoLinkedLists.cpp" />
     <ClCompile Include="FlattenAndSortLinkedList.cpp" />
+    <ClCompile Include="CloneListWithNextAndRandom.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

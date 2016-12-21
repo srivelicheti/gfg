@@ -12,8 +12,8 @@
 int main()
 {
 	///*FlattenAndSort_main*/()();
-	FlattenAndSortLinkedList::FlattenAndSort_main();
-	
+	//FlattenAndSortLinkedList::FlattenAndSort_main();
+	CloneListWithNextAndRandom::CloneListWithNextAndRandom_main();
 	//cout << /*main_multipytwolinkedlist*/() <<endl;
 	int i;
 	cin >> i;
