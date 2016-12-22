@@ -44,5 +44,14 @@
     <ClCompile Include="CloneListWithNextAndRandom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ReverseListInGroups.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="YShapedListIntersection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteNodesHavingGreaterOnTheRight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

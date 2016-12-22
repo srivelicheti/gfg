@@ -26,3 +26,8 @@ namespace DeleteNodesHaingGreaterOnRight
 {
 	void DeleteNodesHaingGreaterOnRight_main();
 }
+
+namespace ReverseListInGroups
+{
+	void ReverseListInGroups_main();
+}
