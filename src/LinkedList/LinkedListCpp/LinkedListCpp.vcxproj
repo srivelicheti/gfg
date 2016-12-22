@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C8A06433-07EC-4CE1-88D4-FA6558817502}</ProjectGuid>
+    <ProjectGuid>{91D22A40-FE3F-4BAE-BFED-4E303DA6F1C1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ArraysCPP</RootNamespace>
+    <RootNamespace>LinkedListCpp</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -145,12 +145,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CommonHeader.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ArraysCPP.cpp" />
-    <ClCompile Include="Replace0sWith5s.cpp" />
+    <ClCompile Include="LinkedListCpp.cpp" />
+    <ClCompile Include="MultiplyTwoLinkedLists.cpp" />
+    <ClCompile Include="FlattenAndSortLinkedList.cpp" />
+    <ClCompile Include="CloneListWithNextAndRandom.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

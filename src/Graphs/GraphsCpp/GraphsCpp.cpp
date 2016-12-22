@@ -1,25 +1,17 @@
-// GraphsCpp.cpp : Defines the entry point for the console application.
-//
-
+// A C++ program to print topological sorting of a DAG
 #include "stdafx.h"
-#include <tuple>
-#include <iostream>
-#include <vector>;
-#include <array>
-
+#include<iostream>
+#include <list>
+#include <stack>
 using namespace std;
 
-#define MAX 10
+// Class to represent a graph
 
 
+// Driver program to test above functions
 int main()
 {
-
-	return 0;
-	int i;
-	cin >> i;
-
+	// Create a graph given in the above diagram
+	
 	return 0;
 }
-
-
