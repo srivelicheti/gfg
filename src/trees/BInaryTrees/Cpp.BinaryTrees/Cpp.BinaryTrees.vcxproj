@@ -155,6 +155,9 @@
     <ClCompile Include="Cpp.BinaryTrees.cpp" />
     <ClCompile Include="IsBst.cpp" />
     <ClCompile Include="largeBst.cpp" />
+    <ClCompile Include="MakeBinaryTree.cpp" />
+    <ClCompile Include="MaxDiffBetweenNodeAndAncestor.cpp" />
+    <ClCompile Include="MinDistBetweenNodes.cpp" />
     <ClCompile Include="PrintTreeInZigag.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

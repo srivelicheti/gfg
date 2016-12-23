@@ -14,3 +14,13 @@ namespace MakeBinaryTree
 {
 	void MakeBinaryTree_Main();
 }
+
+namespace MaxDiffBetweenNodeAndAncestor
+{
+	void MaxDiffBetweenNodeAndAncestor_main();
+}
+
+namespace MinDistBetweenNodes
+{
+	void MinDistBetweenNodes_main();
+}
