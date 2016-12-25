@@ -30,6 +30,9 @@
     <ClInclude Include="DPFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="NameSpaces.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -42,6 +45,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LargestSubArraySize.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DistinctOccurancesAsSubSeq.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MaxLengthChain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -146,13 +146,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DPFunctions.h" />
+    <ClInclude Include="NameSpaces.h" />
     <ClInclude Include="NStackBooks.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DistinctOccurancesAsSubSeq.cpp" />
     <ClCompile Include="DPTestClient.Cpp.cpp" />
     <ClCompile Include="LargestSubArraySize.cpp" />
+    <ClCompile Include="MaxLengthChain.cpp" />
     <ClCompile Include="NStackBooks.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
