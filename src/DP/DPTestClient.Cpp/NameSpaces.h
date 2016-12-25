@@ -9,3 +9,9 @@ namespace MaxLengthChain
 {
 	void MaxLengthChain_main();
 }
+
+
+namespace WildCardPatternMatching
+{
+	void WildCardPatternMatching_main();
+}
