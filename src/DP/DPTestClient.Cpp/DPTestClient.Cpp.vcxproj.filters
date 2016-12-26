@@ -56,5 +56,11 @@
     <ClCompile Include="WildCardPatternMatching.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="KPalindrome.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LongestCommonSubString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

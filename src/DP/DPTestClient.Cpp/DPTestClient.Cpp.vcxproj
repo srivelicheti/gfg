@@ -154,7 +154,9 @@
   <ItemGroup>
     <ClCompile Include="DistinctOccurancesAsSubSeq.cpp" />
     <ClCompile Include="DPTestClient.Cpp.cpp" />
+    <ClCompile Include="KPalindrome.cpp" />
     <ClCompile Include="LargestSubArraySize.cpp" />
+    <ClCompile Include="LongestCommonSubString.cpp" />
     <ClCompile Include="MaxLengthChain.cpp" />
     <ClCompile Include="NStackBooks.cpp" />
     <ClCompile Include="stdafx.cpp">

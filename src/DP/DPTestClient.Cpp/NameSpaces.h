@@ -15,3 +15,13 @@ namespace WildCardPatternMatching
 {
 	void WildCardPatternMatching_main();
 }
+
+namespace KPalindrome
+{
+	void KPalindrome_main();
+}
+
+namespace LongestCommonSubString
+{
+	void LongestCommonSubString_main();
+}

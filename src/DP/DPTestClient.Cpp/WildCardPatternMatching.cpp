@@ -1,11 +1,14 @@
 #include "stdafx.h"
 #include <algorithm>
+#include <iterator>
 
 
 namespace WildCardPatternMatching
 {
+	//TODO: can implement a bottom up solution with cache.
 
 	/*You are required to complete this method*/
+	int** cache;
 	bool wildCard_internal(string pattern, string str, int i, int j)
 	{
 		if (j < 0)
@@ -34,30 +37,6 @@ namespace WildCardPatternMatching
 			if (j == 0 && (str[i] == patChar || patChar == '*' || patChar == '?'))
 				return true;
 		}
-		/*if (i == 0)
-		{
-			if (j == 0 && (str[i] == patChar || patChar == '*' || patChar == '?'))
-				return true;
-			else if (j > 0 && (str[i] == patChar || patChar == '*' || patChar == '?'))
-			{
-				bool allRemAre = true;
-				auto remCharIndex = j - 1;
-				while (remCharIndex >= 0)
-				{
-					if (pattern[remCharIndex] != '*')
-					{
-						allRemAre = false;
-						break;
-					}
-					remCharIndex--;
-				}
-				return allRemAre;
-			}
-			else
-				return false;
-		}
-*/
-
 
 		if (patChar == '*')
 		{
@@ -81,6 +60,7 @@ namespace WildCardPatternMatching
 	/*You are required to complete this method*/
 	int wildCard(string pattern, string str)
 	{
+		
 
 		int i = str.length() - 1;
 		int j = pattern.length() - 1;
