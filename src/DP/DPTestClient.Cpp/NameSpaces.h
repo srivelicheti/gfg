@@ -25,3 +25,8 @@ namespace LongestCommonSubString
 {
 	void LongestCommonSubString_main();
 }
+
+namespace FlipBits
+{
+	void FlipBits_main();
+}

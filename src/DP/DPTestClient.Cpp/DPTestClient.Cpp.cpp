@@ -18,7 +18,8 @@ int main()
 	//MaxLengthChain::MaxLengthChain_main();
 	//WildCardPatternMatching::WildCardPatternMatching_main();
 	//KPalindrome::KPalindrome_main();
-	LongestCommonSubString::LongestCommonSubString_main();
+	//LongestCommonSubString::LongestCommonSubString_main();
+	FlipBits::FlipBits_main();
 	int n;
 	cin >> n;
 

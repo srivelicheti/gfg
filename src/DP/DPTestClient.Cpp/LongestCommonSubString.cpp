@@ -48,4 +48,15 @@ namespace LongestCommonSubString
 			cout << LongestCommonSubString(s, t, m, n) << endl;
 		}
 	}
+	int main()
+	{
+
+		//DistinctOccurancesAsSubSeq::DistinctOccurancesAsSubSeq_main();
+		//MaxLengthChain::MaxLengthChain_main();
+		//WildCardPatternMatching::WildCardPatternMatching_main();
+		//KPalindrome::KPalindrome_main();
+		LongestCommonSubString::LongestCommonSubString_main();
+		return 0;
+	}
+
 }
