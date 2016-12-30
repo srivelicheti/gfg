@@ -30,3 +30,8 @@ namespace FlipBits
 {
 	void FlipBits_main();
 }
+
+namespace TotalDecodingMessages
+{
+	void TotalDecodingMessages_main();
+}

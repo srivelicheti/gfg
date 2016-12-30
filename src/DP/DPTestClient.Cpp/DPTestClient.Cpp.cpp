@@ -19,7 +19,8 @@ int main()
 	//WildCardPatternMatching::WildCardPatternMatching_main();
 	//KPalindrome::KPalindrome_main();
 	//LongestCommonSubString::LongestCommonSubString_main();
-	FlipBits::FlipBits_main();
+	//FlipBits::FlipBits_main();
+	TotalDecodingMessages::TotalDecodingMessages_main();
 	int n;
 	cin >> n;
 

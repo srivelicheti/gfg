@@ -65,5 +65,8 @@
     <ClCompile Include="FlipBits.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TotalDecodingMessages.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
