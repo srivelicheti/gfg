@@ -24,3 +24,22 @@ namespace MinDistBetweenNodes
 {
 	void MinDistBetweenNodes_main();
 }
+
+namespace DeleteNodeFromBST
+{
+	void DeleteNodeFromBST_main();
+}
+
+namespace DiagonalTraversal
+{
+	void DiagonalTraversal_main();
+}
+
+namespace BinaryTreeFromParentArray
+{
+	void BinaryTreeFromParentArray_main();
+}
+namespace ConnectNodesAtSameLevel
+{
+	void ConnectNodesAtSameLevel_main();
+}

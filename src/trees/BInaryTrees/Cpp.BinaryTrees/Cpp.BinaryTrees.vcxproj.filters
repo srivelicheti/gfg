@@ -59,5 +59,17 @@
     <ClCompile Include="MinDistBetweenNodes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DeleteNodeFromBST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DiagonalTraversal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryTreeFromParentArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectNodesAtSameLevel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

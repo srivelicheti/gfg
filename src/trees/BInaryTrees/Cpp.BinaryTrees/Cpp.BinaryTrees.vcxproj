@@ -150,9 +150,13 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BinaryTreeFromParentArray.cpp" />
     <ClCompile Include="CheckIfSubtree.cpp" />
     <ClCompile Include="CloneNode.cpp" />
+    <ClCompile Include="ConnectNodesAtSameLevel.cpp" />
     <ClCompile Include="Cpp.BinaryTrees.cpp" />
+    <ClCompile Include="DeleteNodeFromBST.cpp" />
+    <ClCompile Include="DiagonalTraversal.cpp" />
     <ClCompile Include="IsBst.cpp" />
     <ClCompile Include="largeBst.cpp" />
     <ClCompile Include="MakeBinaryTree.cpp" />

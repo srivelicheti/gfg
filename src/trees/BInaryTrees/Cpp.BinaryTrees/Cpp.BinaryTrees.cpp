@@ -17,7 +17,9 @@ using namespace ::std;
 int main()
 {
 	//PrintTreeInZigag::PrintTreeInZigag_main();
-	MinDistBetweenNodes::MinDistBetweenNodes_main();
+	//MinDistBetweenNodes::MinDistBetweenNodes_main();
+	//DeleteNodeFromBST::DeleteNodeFromBST_main();
+	BinaryTreeFromParentArray::BinaryTreeFromParentArray_main();
 	int i;
 	cin >> i;
 	//Node* node = nullptr; // createNodeFromString("20 10 L 10 5 L 5 1 L 1 50 R");
