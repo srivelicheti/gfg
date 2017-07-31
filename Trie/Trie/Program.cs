@@ -102,7 +102,7 @@ namespace Trie
             if (i >= s.Length - 1)
                 return IsWord;
 
-            if (s[i] == Data)
+            if ( char.is s[i] == Data)
             {
                 if (Center == null)
                     return false;
