@@ -1,13 +1,45 @@
 #pragma once
 
-namespace KthLargestBst
+namespace PrintTreeInZigag
 {
-	void KthLargest_main();
-
-	
+	void PrintTreeInZigag_main();
 }
 
-namespace TreeTraversal
+namespace CheckIfSubtree
 {
-	void InorderTraversal_main();
+	void CheckIfSubtree_main();
+}
+
+namespace MakeBinaryTree
+{
+	void MakeBinaryTree_Main();
+}
+
+namespace MaxDiffBetweenNodeAndAncestor
+{
+	void MaxDiffBetweenNodeAndAncestor_main();
+}
+
+namespace MinDistBetweenNodes
+{
+	void MinDistBetweenNodes_main();
+}
+
+namespace DeleteNodeFromBST
+{
+	void DeleteNodeFromBST_main();
+}
+
+namespace DiagonalTraversal
+{
+	void DiagonalTraversal_main();
+}
+
+namespace BinaryTreeFromParentArray
+{
+	void BinaryTreeFromParentArray_main();
+}
+namespace ConnectNodesAtSameLevel
+{
+	void ConnectNodesAtSameLevel_main();
 }

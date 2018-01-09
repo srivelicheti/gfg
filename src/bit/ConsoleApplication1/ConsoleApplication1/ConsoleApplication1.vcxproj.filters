@@ -30,7 +30,7 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TSP.cpp">
+    <ClCompile Include="ConsoleApplication1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

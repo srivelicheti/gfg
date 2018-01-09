@@ -20,9 +20,9 @@ int Solve(int** mem, int mask, int v, int n ,int** mat) {
 	for (int i = 1; i < n; i++)
 	{
 		if (i != v) {
-			if ((mask & (1 << i)) && mat[v][i]) {
+			if ((mask & (1 << i)) && mat[i][v]) {
 				
-				int cost = mat[v][i] + Solve(mem, (mask & (~(1 << v))), i, n, mat);
+				int cost = mat[i][v] + Solve(mem, (mask & (~(1 << v))), i, n, mat);
 				if (mem[mask][v] == -1)
 					mem[mask][v] = cost;
 				mem[mask][v] = min(cost, mem[mask][v]);
@@ -30,6 +30,8 @@ int Solve(int** mem, int mask, int v, int n ,int** mat) {
 			}
 		}
 	}
+
+	return mem[mask][v];
 
 }
 
@@ -47,7 +49,31 @@ void Solve(int** mat, int n) {
 
 	mem[1][0] = 0;
 
+	int startMask = mask - 1;
+	int minC = numeric_limits<int>::max();
 
+	for (int i = 1; i < n; ++i)
+	{
+		if (mat[i][0] != 0)
+		{
+			mem[(1 << i) | 1][i] = mat[0][i];
+			
+		}
+	}
+
+	for (int i = 1; i < n; ++i)
+	{
+		if(mat[i][0] != 0 && mem[startMask][i] == -1)
+		{
+			Solve(mem, startMask, i, n, mat);
+			if (mem[startMask][i] != -1)
+			{
+				minC = min(mem[startMask][i] + mat[i][0], minC);
+			}
+		}
+	}
+	
+	cout << minC << endl;
 }
 
 int main()
